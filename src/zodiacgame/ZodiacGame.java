@@ -15,6 +15,7 @@ public class ZodiacGame {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        MySketch.main("zodiacgame.MySketch");
     }
     
 }
