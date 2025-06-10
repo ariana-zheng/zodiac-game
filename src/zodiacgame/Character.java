@@ -15,16 +15,18 @@ public class Character {
 
     public int x, y;
     private String name; // name of the person
+    private String animal;
     private int age; // age of the person
     private PApplet app;
     private PImage image;
     private int width, height;
 
-    public Character(PApplet p, int x, int y, String name, int age, String imagePath) {
+    public Character(PApplet p, int x, int y, String name, String animal, String imagePath) {
         this.app = p;
         this.x = x;
         this.y = y;
         this.name = name;
+        this.animal = animal;
         this.image = app.loadImage(imagePath);
         this.width = image.width;
         this.height = image.height;
@@ -53,15 +55,13 @@ public class Character {
         int centerY = y + (image.pixelHeight / 2);
         float d = PApplet.dist(mouseX, mouseY, centerX, centerY);
 
-        System.out.println("image height" + image.pixelHeight);
-        System.out.println("image width" + image.pixelWidth);
-
         return d < 16;
     }
 
     public void displayInfo(PApplet p) {
         app.fill(0);
-        app.text("name: " + name, x, y - 50);
-        app.text("Age: " + age, x, y - 30);
+        app.text("Animal: " + animal, x, y - 30);
+        app.text("Name: " + name, x, y - 10);
+        app.text("blah blah blah...", x, y + 75);
     }
 }
