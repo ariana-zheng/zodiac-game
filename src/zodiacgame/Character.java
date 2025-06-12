@@ -54,7 +54,7 @@ public class Character {
         int centerX = x + (image.pixelWidth / 2);
         int centerY = y + (image.pixelHeight / 2);
         float d = PApplet.dist(mouseX, mouseY, centerX, centerY);
-
+        System.out.println(this.animal);
         return d < 16;
     }
 
@@ -62,6 +62,7 @@ public class Character {
         app.fill(0);
         app.text("Animal: " + animal, x, y - 30);
         app.text("Name: " + name, x, y - 10);
-        app.text("blah blah blah...", x, y + 75);
+        //if()
+            app.text("blah blah blah...", x, y + 75);
     }
 }

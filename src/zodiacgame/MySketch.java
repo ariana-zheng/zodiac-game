@@ -17,11 +17,12 @@ public class MySketch extends PApplet {
 
     private Character rat, ox, tiger, rabbit, dragon, snake, horse, lamb, monkey, chicken, dog, pig;
     private PImage river;  
-    private PImage titlepage; 
-    private PImage inputpage; 
+    private PImage titlepage,inputpage, instructionspage, selectionpage; 
     String input = "";
     int stage = 0;
+    int i = 0;
     private boolean showInfo = false;
+    
     
     public void settings() {
         //sets the size of the window
@@ -37,6 +38,8 @@ public class MySketch extends PApplet {
         this.river = loadImage("images/river.png"); 
         this.titlepage = loadImage("images/titlepage.png"); 
         this.inputpage = loadImage("images/inputpage.png"); 
+        this.instructionspage = loadImage("images/instructionspage.png"); 
+        this.selectionpage = loadImage("images/selectionpage.png"); 
         
     }
 
@@ -50,8 +53,9 @@ public class MySketch extends PApplet {
             image(inputpage, 0, 0);//draw background
             text(input,125, 200 );
         }else if (stage == 2){
-     
-            image(river, 0, 0);//draw background
+            image (instructionspage, 0, 0);
+        }else if (stage == 3){
+            image (selectionpage, 0, 0);
             //initialize every character
             rat = new Character(this, 100, 100, input, "rat", "images/rat.png"); 
             ox = new Character(this, 200, 100, input, "ox","images/ox.png"); 
@@ -65,6 +69,22 @@ public class MySketch extends PApplet {
             chicken = new Character(this, 200, 300, input,"chicken", "images/chicken.png"); 
             dog = new Character(this, 300, 300, input,"dog", "images/dog.png"); 
             pig = new Character(this, 400, 300, input,"pig", "images/pig.png"); 
+            Character [] animals = {rat, ox, tiger, rabbit, dragon, snake, horse, lamb, monkey, chicken, dog, pig};
+            
+            
+            animals[i].draw();
+            if (keyPressed) {
+                if (keyCode == LEFT) {
+                    i--;
+                    (animals[i]).draw();
+                } else if (keyCode == RIGHT) {
+                    i++;
+                    (animals[i]).draw();
+                }
+            }
+        }else if (stage == 4){
+     
+            image(river, 0, 0);//draw background
             
             //draw every character
             rat.draw();
