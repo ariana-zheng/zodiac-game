@@ -14,7 +14,7 @@ import processing.core.PImage;
 public class Character {
 
     public int x, y;
-    private String name; // name of the person
+    String name; // name of the person
     private String animal;
     private int age; // age of the person
     private PApplet app;
