@@ -18,4 +18,8 @@ public class Player extends User{
         super();
         this.score = new Score(0);
     }
+    
+    public Score getScore(){
+        return this.score;
+    }
 }

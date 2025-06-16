@@ -1,0 +1,2 @@
+
+Name: hilkju, Animal: rat, Score: 1

@@ -26,4 +26,8 @@ public class Score {
     public void setScore(int points){
         this.points = points;
     }
+
+    public int getPoints() {
+        return this.points;
+    }
 }
