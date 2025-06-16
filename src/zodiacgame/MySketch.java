@@ -37,6 +37,18 @@ public class MySketch extends PApplet {
     private long lastObstacleSpawnTime = 0;
     private long obstacleSpawnInterval = 1000; // milliseconds between obstacles (this part was reseearched)
     private boolean gameOver = false;
+    
+     private float[][] gameDifficulties = {
+        {4.0f, 800.0f, 7.0f}, // Easy: Slower player, slower obstacles, less frequent spawns
+        {6.0f, 600.0f, 10.0f}, // Medium: Balanced speed
+        {8.0f, 400.0f, 13.0f}  // Hard: Faster player, faster obstacles, more frequent spawns
+    };
+    private int currentDifficultyIndex = 1;
+    // Variables for current game settings from the 2D array
+    private float currentPlayerSpeed;
+    private float currentObstacleSpawnInterval;
+    private float currentMaxObstacleSpeed;
+    
 
     public void settings() {
         //sets the size of the window
@@ -47,6 +59,10 @@ public class MySketch extends PApplet {
         //sets the background colour using R,G,B (https://rgbcolorpicker.com/)
         background(100, 100, 100);
         textSize(15);//set text size
+        
+        currentPlayerSpeed = gameDifficulties[currentDifficultyIndex][0];
+        currentObstacleSpawnInterval = gameDifficulties[currentDifficultyIndex][1];
+        currentMaxObstacleSpeed = gameDifficulties[currentDifficultyIndex][2];
         
         try{
             //Setting each animal's description to their corresponding line in the story file
@@ -211,6 +227,8 @@ public class MySketch extends PApplet {
                     playerCharacter.move(-20, 0); // Move player left
                 } else if (keyCode == RIGHT) {
                     playerCharacter.move(20, 0); // Move player right
+                }else if (keyCode == UP || keyCode == DOWN){
+                    text("ONLY USE LEFT RIGHT ARROWS TO MOVE", 300, 300);
                 }
                 // Constrain player's X position to keep them within the screen bounds (this part was researched)
                 playerCharacter.x = constrain(playerCharacter.x, playerCharacter.width / 2, width - playerCharacter.width / 2);
