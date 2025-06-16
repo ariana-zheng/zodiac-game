@@ -15,21 +15,24 @@ import processing.core.PApplet;
 import processing.core.PImage;
 
 public class MySketch extends PApplet {
-
-    private Character rat, ox, tiger, rabbit, dragon, snake, horse, lamb, monkey, chicken, dog, pig;
-    private PImage river;  
-    private PImage titlepage,inputpage, instructionspage, selectionpage; 
-    String input = "";
-    int stage = 0;
-    private boolean showInfo = false;
-    ArrayList<Obstacle> obstacles;
+    
+    //characters for selection
     ArrayList<Character> characters;
     int i = 0; // Tracks selected character
+    String input = "";//users inputted name
+    
+    private Character rat, ox, tiger, rabbit, dragon, snake, horse, lamb, monkey, chicken, dog, pig;
+    
+    //images for scenes
+    private PImage river;  
+    private PImage titlepage,inputpage, instructionspage, selectionpage; 
+    
+    int stage = 0;
+    private boolean showInfo = false;
+    ArrayList<Obstacle> obstacles; 
+    
     boolean selecting = true; // Enable selection mode
     private Character player;
-
-
-    
     
     public void settings() {
         //sets the size of the window
@@ -55,7 +58,7 @@ public class MySketch extends PApplet {
         chicken = new Character(this, 200, 300, input,"chicken", "images/chicken.png"); 
         dog = new Character(this, 300, 300, input,"dog", "images/dog.png"); 
         pig = new Character(this, 400, 300, input,"pig", "images/pig.png"); 
-        
+        //add all characters to the array
         characters.add(rat);
         characters.add(ox);
         characters.add(tiger);
@@ -75,14 +78,11 @@ public class MySketch extends PApplet {
         this.inputpage = loadImage("images/inputpage.png"); 
         this.instructionspage = loadImage("images/instructionspage.png"); 
         this.selectionpage = loadImage("images/selectionpage.png"); 
-        
-
 
         obstacles = new ArrayList<Obstacle>();
         for (int i = 0; i < 5; i++) { // Create multiple obstacles
             obstacles.add(new Obstacle(this, random(3, 6), "images/obstacle.png"));
         }
-
     }
 
     public void draw() {
@@ -137,7 +137,6 @@ public class MySketch extends PApplet {
                     text("Hit! Game Over.", 250, 50);
                     noLoop(); // Stop the game
                 }
-
             }
 
             // Player only moves left and right
@@ -150,9 +149,6 @@ public class MySketch extends PApplet {
             }
             player.draw();
 
-
-
-            
             if(showInfo){
                 rat.displayInfo(this);
             }  
@@ -199,7 +195,4 @@ public class MySketch extends PApplet {
             }
         }
     }
-
-    
-
 }

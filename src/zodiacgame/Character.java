@@ -11,27 +11,34 @@ package zodiacgame;
 import processing.core.PApplet;
 import processing.core.PImage;
 
-public class Character {
+public class Character extends User {
 
     public int x, y;
-    String name; // name of the person
     private String animal;
-    private int age; // age of the person
     private PApplet app;
     private PImage image;
     private int width, height;
 
     public Character(PApplet p, int x, int y, String name, String animal, String imagePath) {
+        super(name);
         this.app = p;
         this.x = x;
         this.y = y;
-        this.name = name;
         this.animal = animal;
         this.image = app.loadImage(imagePath);
         this.width = image.width;
         this.height = image.height;
     }
 
+    public Character(){
+        super("John Doe");
+        this.x = 0;
+        this.y = 0;
+        this.animal = "No Animal";
+        this.image = app.loadImage("rat");
+        this.width = 50;
+        this.height = 50;
+    }
     public void move(int dx, int dy) {
         x += dx;
         y += dy;
@@ -61,7 +68,7 @@ public class Character {
     public void displayInfo(PApplet p) {
         app.fill(0);
         app.text("Animal: " + animal, x, y - 30);
-        app.text("Name: " + name, x, y - 10);
+        app.text("Name: " + super.getName(), x, y - 10);
         //if()
             app.text("blah blah blah...", x, y + 75);
     }

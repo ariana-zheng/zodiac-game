@@ -9,5 +9,21 @@ package zodiacgame;
  * @author 342354727
  */
 public class Score {
+    private int points;
     
+    public Score(int points){
+        this.points = points;
+    }
+    
+    public Score(){
+        this.points = 0;
+    }
+    
+    public int getScore(){
+        return points;
+    }
+    
+    public void setScore(int points){
+        this.points = points;
+    }
 }
