@@ -158,7 +158,9 @@ public class MySketch extends PApplet {
             }
         }
     }
-
+    /**
+     * Depending on the stage, check which key is being pressed and run code accordingly
+     */
     public void keyPressed() {
         if (stage == 0) { // Title Stage: Press ENTER to move to the next stage
             if (keyCode == ENTER) {
@@ -219,7 +221,9 @@ public class MySketch extends PApplet {
             }
         }
     }
-    
+    /**
+     * Checks when mouse is pressed during stage 3 for show info method.
+     */
     public void mousePressed(){
         // Check if we are in the character selection stage (stage 3)
         if(stage == 3){

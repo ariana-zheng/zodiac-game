@@ -10,24 +10,31 @@ package zodiacgame;
  */
 public class Score {
     private int points;
-    
+    /**
+     * Constructor for score object
+     * @param points the number of points calculated
+     */
     public Score(int points){
         this.points = points;
     }
-    
+    /**
+     * Default constructor, sets default values
+     */
     public Score(){
         this.points = 0;
     }
-    
+    /**
+     * Access the points value.
+     * @return number of points scored
+     */
     public int getScore(){
         return points;
     }
-    
+    /**
+     * Setting the score value
+     * @param points new number of points
+     */
     public void setScore(int points){
         this.points = points;
-    }
-
-    public int getPoints() {
-        return this.points;
     }
 }
